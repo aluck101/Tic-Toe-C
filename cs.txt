@@ -1,0 +1,23 @@
+int main()
+{
+    int position;
+    
+    char square[3][3]={1,2,3,4,5,6,7,8,9};
+    
+    
+    printf("Tic Tac Toe Game\n");
+
+    printf("Player1 -> X  Player2 -> O\n");
+    
+    printf(" 1     2      3 \n");
+    printf("[%c]  [%c]  [%c]\n",square[1],square[2],square[3]);
+    printf(" 4     5      6 \n");
+    printf("[%c]  [%c]  [%c]\n",square[4],square[5],square[6]);
+    printf(" 7     8      9 \n");
+    printf("[%c]  [%c]  [%c]\n",square[7],square[8],square[9]);
+
+    printf("Player1 please enter the number of a square:\n");
+    scanf("%c, &position");
+    
+    return 0;
+}
