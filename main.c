@@ -69,19 +69,27 @@ int main() {
 
     printf("\nPlayer 1 is X and Player 2 is O\n");
 
-    printf("Please enter the number between 1 - 9: \n");
-    scanf("%c", &selectedGrid);
+
 
     if(currentPlayer == 0 || currentPlayer == 1) {
-
+        printf("\n Player X\n");
+        printf("Please enter the number between 1 - 9: \n");
+        scanf("%c", &selectedGrid);
+        if(!selection(selectedGrid, 'O')) {
+            currentPlayer = 1;
+        } else {
+            currentPlayer = 2;
+        }
+    } else {
+        printf("\n Player O\n");
+        printf("Please enter the number between 1 - 9: \n");
+        scanf("%c", &selectedGrid);
         if(!selection(selectedGrid, 'O')) {
             currentPlayer = 2;
         } else {
             currentPlayer = 1;
         }
     }
-
-
     showGrid();
 
     return 0;
