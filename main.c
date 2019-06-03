@@ -36,8 +36,6 @@ int selection(char gridElementPosition, char playerType) {
 
 }
 
-
-
 int main() {
 
 
@@ -68,8 +66,6 @@ int main() {
     showGrid();
 
     printf("\nPlayer 1 is X and Player 2 is O\n");
-
-
 
     if(currentPlayer == 0 || currentPlayer == 1) {
         printf("\n Player X\n");
