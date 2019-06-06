@@ -40,40 +40,35 @@ int selection(char gridElementPosition, char playerType) {
 
 void checkWin(){
 
-int total;
+int total = 0;
 
-    if (grid[0][0] == 'O' && grid[0][1] == 'O' && grid[0][2] == 'O') {
-        win = 'O';
-    } else if (grid[1][0] == 'O' && grid[1][1] == 'O' && grid[1][2] == 'O') {
-        win = 'O';
-    } else if (grid[2][0] == 'O' && grid[2][1] == 'O' && grid[2][2] == 'O') {
-        win = 'O';
-    } else if (grid[0][0] == 'O' && grid[1][0] == 'O' && grid[2][0] == 'O') {
-        win = 'O';
-    } else if (grid[0][1] == 'O' && grid[1][1] == 'O' && grid[2][1] == 'O') {
-        win = 'O';
-    } else if (grid[0][2] == 'O' && grid[1][2] == 'O' && grid[2][2] == 'O') {
-        win = 'O';
-    } else if (grid[0][0] == 'O' && grid[1][1] == 'O' && grid[2][2] == 'O') {
-        win = 'O';
-    } else if (grid[0][2] == 'O' && grid[1][1] == 'O' && grid[2][0] == 'O') {
-        win = 'O';
-    } else if (grid[0][0] == 'X' && grid[0][1] == 'X' && grid[0][2] == 'X')
-        win = 'X';
-    else if (grid[1][0] == 'X' && grid[1][1] == 'X' && grid[1][2] == 'X') {
-        win = 'X';
-    } else if (grid[2][0] == 'X' && grid[2][1] == 'X' && grid[2][2] == 'X') {
-        win = 'X';
-    } else if (grid[0][0] == 'X' && grid[1][0] == 'X' && grid[2][0] == 'X') {
-        win = 'X';
-    } else if (grid[0][1] == 'X' && grid[1][1] == 'X' && grid[2][1] == 'X') {
-        win = 'X';
-    } else if (grid[0][2] == 'X' && grid[1][2] == 'X' && grid[2][2] == 'X') {
-        win = 'X';
-    } else if (grid[0][0] == 'X' && grid[1][1] == 'X' && grid[2][2] == 'X') {
-        win = 'X';
-    } else if (grid[0][2] == 'X' && grid[1][1] == 'X' && grid[2][0] == 'X') {
-        win = 'X';
+    for (int i = 0; i < 3; i++) {
+        if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]) {
+            if (grid[i][0] == 'X')
+                win = 'X';
+            else if (grid[i][0] == 'O')
+                win = 'O';
+        }
+    }
+    for (int j = 0; j < 3; j++) {
+        if (grid[0][j] == grid[1][j] && grid[1][j] == grid[2][j]) {
+            if (grid[0][j] == 'X')
+                win = 'X';
+            else if (grid[0][j] == 'O')
+                win = 'O';
+        }
+    }
+    if(grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2]) {
+        if(grid[0][0] == 'X')
+            win = 'X';
+        else if(grid[0][0] == 'O')
+            win = 'O';
+    }
+    if(grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0]) {
+        if(grid[0][2] == 'X')
+            win = 'X';
+        else if(grid[0][2] == 'O')
+            win = 'O';
     }
 
     if(win == 'X') {
@@ -112,7 +107,6 @@ int main() {
 //        printf("\nPlease choose the game mode \n\nPress 1 for User vs User Mode\n\nPress 2 for Computer vs User Mode\n");
 //
 //        scanf("%d", &gameMode);
-//
 //
 //    }
 //
