@@ -3,25 +3,25 @@
 #include <stdlib.h>
 
 
+
 char grid[3][3] = {{'1', '2', '3'},
                    {'4', '5', '6'},
                    {'7', '8', '9'}};
 
 char win = ' ';
-
 int currentPlayer = 0;
 
 void showGrid() {
 
     system("clear");
-    printf("***************************");
-    for (int i = 0; i < 3; i++) {
-        printf("\n*||---------------------||*\n");
-        for (int j = 0; j < 3; j++) {
-            printf(" || %c || ", grid[i][j]);
-        }
-    }
-    printf("\n***************************\n");
+    printf("*******************\n");
+    printf("*|| %c || %c || %c ||*\n", grid[0][0], grid[0][1], grid[0][2]);
+    printf("*||-------------||*\n");
+    printf("*|| %c || %c || %c ||*\n", grid[1][0], grid[1][1], grid[1][2]);
+    printf("*||-------------||*\n");
+    printf("*|| %c || %c || %c ||*\n", grid[2][0], grid[2][1], grid[2][2]);
+    printf("*******************\n");
+
 }
 
 int selection(char gridElementPosition, char playerType) {
@@ -93,6 +93,7 @@ int total = 0;
         }
     }
 
+
 int main() {
 
 
@@ -152,3 +153,6 @@ int main() {
     return 0;
 
 }
+
+
+
