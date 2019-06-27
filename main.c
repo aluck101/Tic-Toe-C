@@ -1,15 +1,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "game.h"
 
 
 
-char grid[3][3] = {{'1', '2', '3'},
-                   {'4', '5', '6'},
-                   {'7', '8', '9'}};
-
-char win = ' ';
 int currentPlayer = 0;
+char grid[3][3]= {{'1', '2', '3'},
+{'4', '5', '6'},
+{'7', '8', '9'}};
+
 
 void showGrid() {
 
@@ -28,6 +28,7 @@ int selection(char gridElementPosition, char playerType) {
 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
+            //Check for valid selection
             if (grid[i][j] == gridElementPosition ) {
                 grid[i][j] = playerType;
                 return 0;
@@ -38,9 +39,10 @@ int selection(char gridElementPosition, char playerType) {
     return 1;
 }
 
+
 void checkWin(){
 
-int total = 0;
+    int total = 0;
 
     for (int i = 0; i < 3; i++) {
         if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]) {
@@ -89,38 +91,13 @@ int total = 0;
     }
     if(total == 9) {
         printf("Draw!");
-        return;
-        }
+        exit(0); //to End the game
     }
 
+}
 
-int main() {
-
-
-    int gameMode;
+void userGamePlay() {
     char selectedGrid;
-
-    printf("Welcome to Tic Tac Toe\n");
-//
-//    while (!(gameMode == 1 || gameMode == 2)) {
-//
-//
-//        printf("\nPlease choose the game mode \n\nPress 1 for User vs User Mode\n\nPress 2 for Computer vs User Mode\n");
-//
-//        scanf("%d", &gameMode);
-//
-//    }
-//
-//    if (gameMode == 1) {
-//        printf("You have selected User vs User Mode\n");
-//    } else if (gameMode == 2) {
-//        printf("You have selected Computer vs User Mode\n");
-//    } else {
-//
-//        printf("Wrong selection");
-//    }
-
-    showGrid();
 
     printf("\nPlayer 1 is X and Player 2 is O\n");
 
@@ -148,8 +125,54 @@ int main() {
 
         showGrid();
         checkWin();
+    }
+
+}
+
+int main() {
+
+    int gameMode;
+//    char username[50];
+//
+//
+//    printf("Welcome to Tic Tac Toe\n");
+//    printf("What is your name: ");
+//    scanf("%s", &username);
+
+    while (!(gameMode == 1 || gameMode == 2)) {
+
+
+        printf("\nPlease choose the game mode \n\nPress 1 for User vs User Mode\n\nPress 2 for Computer vs User Mode\n");
+
+        scanf("%d", &gameMode);
 
     }
+
+    if (gameMode == 1) {
+        userGamePlay();
+    } else if (gameMode == 2) {
+        int level;
+        while(!(level == 1 || level ==2)) {
+            printf("Please choose between 1-2 for game level: ");
+            scanf("%d", &level);
+        }
+        switch(level) {
+            case 1:
+                computerGamePlayOne();
+                break;
+            case 2:
+                computerGamePlayTwo();
+                break;
+            default:
+                printf("Invalid Selection!");
+        }
+    } else {
+
+        printf("Wrong selection");
+    }
+
+    showGrid();
+
     return 0;
 
 }

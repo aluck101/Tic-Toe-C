@@ -2,11 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "game.h"
-//
-//char grid[3][3] = {{'1', '2', '3'},
-//                   {'4', '5', '6'},
-//                   {'7', '8', '9'}};
-//generate
+
 int randomNum() {
     int num;
     srand(time(NULL));
@@ -18,6 +14,8 @@ int randomNum() {
 
 void computerGamePlayOne() {
     char selectedGrid;
+
+    showBoard();
 
     printf("\nPlayer 1 is X and Player 2(Computer) is O\n");
 
@@ -36,7 +34,7 @@ void computerGamePlayOne() {
         else {
             printf("\n Player Computer\n");
 
-            char select = randomNum() + '0';
+            char select = randomNum() + '0'; // + 'O' converts integer to char
 
             if(selection(select, 'O') == 1)
                 currentPlayer = 2;
@@ -44,7 +42,7 @@ void computerGamePlayOne() {
                 currentPlayer = 1;
         }
 
-        showGrid();
+        showBoard();
         checkWin();
     }
 
