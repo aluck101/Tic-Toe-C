@@ -29,9 +29,9 @@ void clearGrid() {
 
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-            grid[i][j] = '0'+i;
+            grid[i][j] = '0' + i;
         }
-        }
+    }
 
 }
 
@@ -112,7 +112,7 @@ int minmaxfunc(int weight, int alpha, int beta, bool isMax) {
                 }
             }
         }
-            return bestMove;
+        return bestMove;
     } else {
         int bestMove = 1000;
 
@@ -130,7 +130,7 @@ int minmaxfunc(int weight, int alpha, int beta, bool isMax) {
                 }
             }
         }
-            return bestMove;
+        return bestMove;
     }
 }
 

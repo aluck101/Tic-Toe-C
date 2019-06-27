@@ -15,8 +15,6 @@ int randomNum() {
 void computerGamePlayOne() {
     char selectedGrid;
 
-    showBoard();
-
     printf("\nPlayer 1 is X and Player 2(Computer) is O\n");
 
 
@@ -42,7 +40,7 @@ void computerGamePlayOne() {
                 currentPlayer = 1;
         }
 
-        showBoard();
+        showGrid();
         checkWin();
     }
 
